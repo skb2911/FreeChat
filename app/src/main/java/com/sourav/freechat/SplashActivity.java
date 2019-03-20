@@ -1,4 +1,4 @@
-package com.example.freechat;
+package com.sourav.freechat;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -10,6 +10,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash);
         new Handler().postDelayed(new Runnable() {
             @Override

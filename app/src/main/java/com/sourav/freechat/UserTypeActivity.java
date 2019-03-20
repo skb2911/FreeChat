@@ -1,5 +1,6 @@
-package com.example.freechat;
+package com.sourav.freechat;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class UserTypeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: check user1 is online or offline
+                startActivity(new Intent(UserTypeActivity.this, MessagingActivity.class));
             }
         });
 
@@ -26,6 +28,8 @@ public class UserTypeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: check user2 is online or offline
+                startActivity(new Intent(UserTypeActivity.this, MessagingActivity.class));
+
             }
         });
 

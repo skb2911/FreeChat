@@ -1,4 +1,4 @@
-package com.example.freechat;
+package com.sourav.freechat;
 
 import org.junit.Test;
 
