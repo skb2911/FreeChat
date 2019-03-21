@@ -20,7 +20,9 @@ public class UserTypeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: check user1 is online or offline
-                startActivity(new Intent(UserTypeActivity.this, MessagingActivity.class));
+                Intent chat = new Intent(UserTypeActivity.this, MessagingActivity.class);
+                chat.putExtra("User", "UserOne");
+                startActivity(chat);
             }
         });
 
@@ -28,7 +30,9 @@ public class UserTypeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: check user2 is online or offline
-                startActivity(new Intent(UserTypeActivity.this, MessagingActivity.class));
+                Intent chat = new Intent(UserTypeActivity.this, MessagingActivity.class);
+                chat.putExtra("User", "UserTwo");
+                startActivity(chat);
 
             }
         });
