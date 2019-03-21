@@ -49,6 +49,50 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253544259067:android:574b91d235098743",
+        "android_client_info": {
+          "package_name": "com.sourav.freechat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "253544259067-m1asia6s1mt7pfko9sufovrae38ab2hu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourav.freechat",
+            "certificate_hash": "3c1fb2ff40c23e15b32a25e60b289262cf1d88ff"
+          }
+        },
+        {
+          "client_id": "253544259067-kuc8nq1p2gqrfnq6a4dpfjohncqioclg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8Zy_sZkC1FpGVWEAxu1xFRU77-wAJ3Uo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "253544259067-kuc8nq1p2gqrfnq6a4dpfjohncqioclg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

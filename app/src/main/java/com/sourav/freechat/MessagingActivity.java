@@ -8,8 +8,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -46,9 +50,34 @@ public class MessagingActivity extends AppCompatActivity {
         textSend = findViewById(R.id.textSend);
         buttonSend = findViewById(R.id.buttonSend);
 
-
         intent = getIntent();
-        String userType = intent.getStringExtra("User");
+        final String userType = intent.getStringExtra("User");
+
+        buttonSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String msg = textSend.getText().toString();
+                if(!msg.equals("")){
+                    if(userType.equals("UserOne")){
+                        sendMessage("Sourav","Satya", msg);
+                    }
+                    else if (userType.equals("UserTwo")){
+                        sendMessage("Satya", "Sourav", msg);
+                    }
+                    else
+                    {
+                        Toast.makeText(MessagingActivity.this, "Error occured!!!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    Toast.makeText(MessagingActivity.this, "You can't send empty message", Toast.LENGTH_SHORT).show();
+                }
+                textSend.setText("");
+            }
+        });
+
+
+
 
         if(userType.equals("UserOne")){
             getSupportActionBar().setTitle("Satya");
@@ -60,8 +89,16 @@ public class MessagingActivity extends AppCompatActivity {
 
 
     }
-    
+
     public void sendMessage (String sender, String receiver, String message){
 
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        HashMap<String,Object> hashMap = new HashMap<>();
+        hashMap.put("sender",sender);
+        hashMap.put("receiver", receiver);
+        hashMap.put("message",message);
+
+        databaseReference.child("Chats").push().setValue(hashMap);
     }
 }
