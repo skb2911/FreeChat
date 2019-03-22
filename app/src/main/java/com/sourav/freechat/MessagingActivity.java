@@ -1,10 +1,15 @@
 package com.sourav.freechat;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -87,6 +92,8 @@ public class MessagingActivity extends AppCompatActivity {
                 Toast.makeText(MessagingActivity.this, "Here", Toast.LENGTH_SHORT).show();
             }
         });
+
+        checkInternet();
 
         recyclerView = findViewById(R.id.recyclerViewChats);
         recyclerView.setHasFixedSize(true);
@@ -196,6 +203,17 @@ public class MessagingActivity extends AppCompatActivity {
         databaseReference.child("Chats").push().setValue(hashMap);
     }
 
+    public void checkInternet(){
+        if(!isNetworkAvailable()){
+
+            AlertDialog alertDialog = new AlertDialog.Builder(MessagingActivity.this).setTitle("Provide Internet connection").setMessage("Please provide internet connection to chat").setPositiveButton("RETRY", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    checkInternet();
+                }
+            }).show();
+        }
+    }
+
     public void readMessage (final String myId, final String userId){
         mChat = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("Chats");
@@ -293,5 +311,11 @@ public class MessagingActivity extends AppCompatActivity {
 
         }
 
+    }
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
