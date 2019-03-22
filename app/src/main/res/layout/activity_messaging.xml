@@ -52,22 +52,38 @@
         android:background="#fff"
         android:layout_alignParentBottom="true">
 
+        <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_image_black"
+            android:id="@+id/imageButton"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textSend"
+            android:layout_toRightOf="@+id/imageButton"
             android:background="@android:color/transparent"
             android:hint="Type a message..."
+            android:layout_marginLeft="8dp"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/buttonSend"/>
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/buttonSend"
+            android:layout_marginLeft="8dp"
             android:background="@drawable/ic_send_grey"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>
