@@ -12,7 +12,7 @@ public class UserTypeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_type);
         userOneButton = findViewById(R.id.userOne);
         userTwoButton = findViewById(R.id.userTwo);
 
@@ -21,7 +21,7 @@ public class UserTypeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: check user1 is online or offline
                 Intent chat = new Intent(UserTypeActivity.this, MessagingActivity.class);
-                chat.putExtra("User", "UserOne");
+                chat.putExtra("User", "Sourav");
                 startActivity(chat);
             }
         });
@@ -31,7 +31,7 @@ public class UserTypeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO: check user2 is online or offline
                 Intent chat = new Intent(UserTypeActivity.this, MessagingActivity.class);
-                chat.putExtra("User", "UserTwo");
+                chat.putExtra("User", "Satya");
                 startActivity(chat);
 
             }
